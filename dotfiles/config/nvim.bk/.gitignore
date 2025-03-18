@@ -2,7 +2,6 @@ tt.*
 .tests
 doc/tags
 debug
-spell
 .repro
 foo.*
 *.log

@@ -57,52 +57,7 @@ return {
       },
     },
   },
-  {
-    "folke/tokyonight.nvim",
-    opts = function(_, opts)
-      if vim.g.kaz_transparency then
-        opts.transparent = true
-        opts.styles = {
-          sidebars = "transparent",
-          floats = "transparent",
-        }
-      end
-      opts.lualine_bold = true
-      opts.on_highlights = function(hl, c)
-        if vim.g.kaz_transparency then
-          hl["BufferLineSeparator"] = { fg = c.bg_statusline }
-          hl["BufferLineGroupSeparator"] = { fg = c.bg_statusline }
-          hl["BufferLineOffsetSeparator"] = { fg = c.bg_statusline }
-          hl["BufferLineSeparatorSelected"] = { fg = c.bg_statusline }
-          hl["BufferLineSeparatorVisible"] = { fg = c.bg_statusline }
-          hl["BufferLineTabSeparator"] = { fg = c.bg_statusline }
-          hl["BufferLineTabSeparatorSelected"] = { fg = c.bg_statusline }
-        end
-        hl["NoiceCmdlinePopup"] = hl.NormalFloat
-        hl["NoiceCmdlinePopupBorder"] = hl.Constant
-        hl["SnacksDashboardHeader"] = {
-          fg = util.choose({
-            c.blue,
-            c.blue1,
-            c.blue2,
-            c.blue5,
-            c.cyan,
-            c.green,
-            c.green2,
-            c.magenta,
-            c.orange,
-            c.purple,
-            c.red,
-            c.teal,
-            c.yellow,
-          }),
-        }
-        hl["SnacksDashboardTitle"] = { fg = c.magenta, bold = true }
-        hl["SnacksDashboardKey"] = { fg = c.orange, bold = true }
-      end
-      return opts
-    end,
-  },
+  { "rebelot/kanagawa.nvim" },
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
@@ -153,6 +108,7 @@ return {
     },
     opts = {
       ---@type snacks.picker.Config
+      image = { enabled = true },
       picker = {
         sources = {
           insert_markdown_link = {
@@ -189,6 +145,12 @@ return {
           input = {
             keys = {
               ["<a-l>"] = { "cycle_layouts", mode = { "i", "n" } },
+            },
+          },
+          preview = {
+            wo = {
+              number = false,
+              signcolumn = "no",
             },
           },
         },
