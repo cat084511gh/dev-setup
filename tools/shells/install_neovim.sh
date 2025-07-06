@@ -3,7 +3,7 @@
 #!/bin/sh
 
 OS=$(uname)
-NEOVIM_VERSION="v0.11.0"
+NEOVIM_VERSION="v0.11.2"
 
 cd ../downloads/
 
